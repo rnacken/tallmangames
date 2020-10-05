@@ -1,0 +1,73 @@
+@use './vars.sass'
+
+// Typographic scale
+// -------------------------------------------------------------------
+h1, .h1
+  font-size: vars.$h1
+h2, .h2
+  font-size: vars.$h2
+h3, .h3
+  font-size: vars.$h3
+h4, .h4, p, ul, ol, dl
+  font-size: vars.$h4
+h5, .h5
+  font-size: vars.$h5
+h6, .h6, small, .small
+  font-size: vars.$h6
+
+// Finer control over type scale after certain breakpoint (off by default)
+@if (vars.$responsive-type)
+  @media screen and (min-width: vars.$breakpoint--sm)
+    h1, .h1
+      font-size: vars.$h1--desktop
+    h2, .h2
+      font-size: vars.$h2--desktop
+    h3, .h3
+      font-size: vars.$h3--desktop
+    h4, .h4,
+    p, ul, ol, dl
+      font-size: vars.$h4--desktop
+    h5, .h5
+      font-size: vars.$h5--desktop
+    h6, .h6, small, .small
+      font-size: vars.$h6--desktop
+
+// Base typography styles
+// -------------------------------------------------------------------
+// Headings
+h1,
+h2,
+h3,
+h4,
+h5,
+h6
+  font-family: vars.$font-family--heading
+  font-weight: vars.$font-weight--heading
+  line-height: vars.$line-height--heading
+  margin-top: 0
+  margin-bottom: vars.$baseline*2
+  text-rendering: optimizeLegibility // Enable ligatures and kerning
+
+h6
+  color: vars.$gray
+
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6
+  line-height: vars.$line-height--heading
+  margin-bottom: vars.$baseline*2
+
+// Paragraph
+p
+  margin: 0
+
+blockquote
+  margin: 1rem 0
+  line-height: 1.6
+  font-size: vars.$h6
+  p
+    font-size: vars.$h6
+    margin: 0.5rem 0

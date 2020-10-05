@@ -1,0 +1,51 @@
+@use '../../styles/vars.sass'
+
+$backdrop-offset: 20px // pixels
+
+.game
+  display: flex
+  flex-direction: row
+  padding: 3rem 0
+
+.game--image-right
+  flex-direction: row-reverse
+
+.image_container
+  margin-top: 2rem
+  flex-basis: 50%
+  max-width: 50%
+  position: relative
+
+.content
+  position: relative
+  z-index: 10
+  flex-basis: 50%
+  max-width: 50%
+
+.image
+  position: relative
+  z-index: 2
+  height: 420px
+  width: 420px
+  background-size: cover
+  background-repeat: no-repeat
+  background-position: center
+
+.image_backdrop--image-left
+  left: -$backdrop-offset
+  top: $backdrop-offset
+
+.image_backdrop--image-right
+  left: $backdrop-offset
+  top: -$backdrop-offset
+
+.image_backdrop
+  z-index: 1
+  width: 420px
+  height: 420px
+  position: absolute
+  background-color: vars.$primary-color
+
+  @media screen and (max-width: vars.$breakpoint--md)
+    display: none
+    visibility: hidden

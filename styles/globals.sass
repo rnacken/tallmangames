@@ -1,0 +1,47 @@
+@use './vars.sass' as vars
+@use './type.sass'
+
+@import url('https://fonts.googleapis.com/css2?family=Karla&display=swap')
+
+html
+  box-sizing: border-box
+  font-family: vars.$font-family--base
+  font-size: vars.$font-size--mobile
+  font-style: normal
+  font-weight: vars.$font-weight--base
+  min-height: 100% // Ensure the page always fills at least the entire height of the viewport
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0)
+
+  @media screen and (min-width: vars.$breakpoint--sm)
+    font-size: vars.$font-size--desktop
+
+body
+  background-color: vars.$tan !important
+  color: vars.$text-color
+  line-height: vars.$line-height--base
+  margin: 0
+  padding: 0
+  -moz-osx-font-smoothing: grayscale
+  -webkit-font-smoothing: antialiased
+  -webkit-text-size-adjust: 100%
+
+// Remove text-shadow in selection highlight: h5bp.com/i
+// These selection rule sets have to be separate.
+::-moz-selection
+  background-color: vars.$primary-color
+  color: #fff
+  text-shadow: none
+
+::selection
+  background-color: vars.$primary-color
+  color: #fff
+  text-shadow: none
+
+img::selection
+  background: transparent
+
+img::-moz-selection
+  background: transparent
+
+img
+  max-width: 100%
