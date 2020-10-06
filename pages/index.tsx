@@ -50,7 +50,10 @@ export async function getStaticProps() {
   const games = await fetch(TRELLO_BOARD_URL)
     .then(resp => resp.json())
     .then(json => json.cards)
-    .then(cards => cards.filter(card => card.idList == TRELLO_LIST_ID && !card.closed)
+    .then(cards => cards.filter(card => card.idList == TRELLO_LIST_ID && !card.closed && card.labels.filter(label => (
+      label.name.toLowerCase() == 'live' ||
+      label.name.toLowerCase() == BRANCH
+    )).length)
       .map(({ id, name, desc, attachments }) => ({
         id,
         name,
@@ -62,7 +65,7 @@ export async function getStaticProps() {
   return {
     props: {
       games,
-      buildTime: `${new Date().toLocaleString('nl-NL', { timeZone: 'Europe/Amsterdam' })}`
+      buildTime: `${new Date().toLocaleString('nl-NL', { timeZone: 'Europe/Amsterdam' })} (${process.env.BRANCH})`
     },
   };
 }
