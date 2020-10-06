@@ -1,0 +1,50 @@
+@use './vars.sass'
+
+.btn
+  color: white
+  padding: 5px 20px
+  background-color: vars.$primary-color
+  border-radius: 2px
+  border: none
+  background-image: none // Reset unusual Firefox-on-Android default style: https://github.com/necolas/normalize.css/issues/214
+  cursor: pointer
+  display: inline-block // Allow us to better style box model properties
+  font-family: vars.$font-family--ui
+  font-weight: 700
+  text-transform: uppercase
+  letter-spacing: 1px
+  font-size: .8rem
+  line-height: vars.$line-height--base
+  margin-bottom: 0
+  margin-right: 1rem
+  text-align: center
+  text-decoration: none
+  touch-action: manipulation
+  transition: all 200ms
+  user-select: none
+  vertical-align: middle // Line different size buttons up nicely
+  white-space: nowrap // Stop buttons wrapping and looking broken
+  appearance: none
+
+  &:hover,
+  &:focus
+    outline: 0
+    text-decoration: none
+    background-color: darken(vars.$primary-color, 10%)
+
+  &:active
+    outline: 0
+    background-image: none
+
+  &.disabled,
+  &[disabled],
+  &[readonly],
+  fieldset[disabled] &
+    cursor: not-allowed !important
+    opacity: 1 // iOS fix for unreadable disabled content
+    pointer-events: none // Future-proof disabling of clicks
+
+  @media screen and (max-width: vars.$breakpoint--sm)
+    display: block
+    width: 100%
+    margin-bottom: 1rem

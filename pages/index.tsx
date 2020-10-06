@@ -40,10 +40,14 @@ export default Home;
 
 export async function getStaticProps() {
   // get content from trello-api
-  const TRELLO_API_URL = 'https://trello.com/b/sNLkF0Wv/tallmangames.json';
-  const TRELLO_LIST_ID = '5f7a26e7d553d910fc8900f8'; //game-list
+  require('dotenv').config();
+  const {
+    TRELLO_BOARD_URL = 'https://trello.com/b/sNLkF0Wv/tallmangames.json',
+    TRELLO_LIST_ID = '5f7a26e7d553d910fc8900f8',
+    BRANCH
+  } = process.env;
 
-  const games = await fetch(TRELLO_API_URL)
+  const games = await fetch(TRELLO_BOARD_URL)
     .then(resp => resp.json())
     .then(json => json.cards)
     .then(cards => cards.filter(card => card.idList == TRELLO_LIST_ID && !card.closed)

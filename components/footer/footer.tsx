@@ -7,7 +7,6 @@ interface Props {
 }
 
 const Footer: React.FC<Props> = ({ buildTime }) => {
-
   return (
     <section className={Styles.footer}>
       <div className={SharedStyles.container}>
