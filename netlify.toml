@@ -1,0 +1,6 @@
+[build]
+  functions = "lambdas_build/"
+[dev]
+  port = 4000
+  functionsPort = 34567
+  functions = "lambdas_build/"

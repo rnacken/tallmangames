@@ -1,3 +1,5 @@
+// script to set Trello webhook to update Netlify on any list ('game-list') changes
+
 // Get any environment variables we need
 require("dotenv").config();
 const fetch = require("node-fetch");
