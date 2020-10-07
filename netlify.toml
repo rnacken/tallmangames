@@ -1,4 +1,5 @@
 [build]
+  command = "yarn build && yarn export"
   functions = "lambdas_build/"
 [dev]
   port = 4000

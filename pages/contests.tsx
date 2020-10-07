@@ -12,24 +12,24 @@ export default function Contests() {
   );
 }
 
-export async function getServerSideProps(context) {
-  const prisma = new PrismaClient();
-  async function main() {
-    const allUsers = await prisma.user.findMany({
-      include: { posts: true },
-    });
-    console.log(allUsers);
-  }
+// export async function getServerSideProps(context) {
+//   const prisma = new PrismaClient();
+//   async function main() {
+//     const allUsers = await prisma.user.findMany({
+//       include: { posts: true },
+//     });
+//     console.log(allUsers);
+//   }
   
-  main()
-    .catch((e) => {
-      throw e;
-    })
-    .finally(async () => {
-      await prisma.$disconnect();
-    });
+//   main()
+//     .catch((e) => {
+//       throw e;
+//     })
+//     .finally(async () => {
+//       await prisma.$disconnect();
+//     });
 
-  return {
-    props: {}, // will be passed to the page component as props
-  }
-}
+//   return {
+//     props: {}, // will be passed to the page component as props
+//   }
+// }
